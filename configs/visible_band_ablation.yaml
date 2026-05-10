@@ -1,0 +1,69 @@
+method:
+  name: visible_band
+  use_depth_branch: false
+  use_temporal_branch: false
+  use_orientation_branch: false
+
+render:
+  target_width: 1920
+  target_height: 1080
+  lowres_width: 256
+  lowres_height: 256
+  tile_size: 32
+  background: model
+  scaling_modifier: 1.0
+
+gaze:
+  mode: fixed
+  gaze_uv: [0.5, 0.5]
+  fov_x_deg: 100
+  fov_y_deg: 100
+
+bands:
+  type: laplacian
+  num_bands: 4
+  names: [very_low, low, mid, high]
+  sigma_base: 1.0
+  sigma_scale: 2.0
+  local_mean_sigma: 4.0
+
+visibility_threshold:
+  very_low: {base: 0.02, ecc_slope: 0.005}
+  low:      {base: 0.03, ecc_slope: 0.010}
+  mid:      {base: 0.05, ecc_slope: 0.030}
+  high:     {base: 0.08, ecc_slope: 0.070}
+
+budget:
+  fovea_deg: 5
+  parafovea_deg: 15
+  keep_ratio_fovea: 1.0
+  keep_ratio_parafovea: 0.50
+  keep_ratio_periphery: 0.25
+  lambda_visible: 0.25
+  min_keep_ratio: 0.05
+  max_keep_ratio: 1.0
+  match_global_budget: true
+  target_global_budget: null
+
+score:
+  weight_visible_energy: 1.0
+  weight_opacity: 1.0
+  weight_projected_area: 0.5
+  weight_contrast_proxy: 0.5
+
+depth_branch:
+  lambda_depth: 0.20
+  depth_gradient_threshold: 0.10
+
+temporal_branch:
+  enter_threshold: 0.50
+  keep_threshold: 0.35
+  lambda_temporal: 0.15
+
+debug:
+  save_visible_band_maps: true
+  save_budget_maps: true
+  save_selected_masks: true
+  save_band_contrast_maps: true
+  save_eccentricity_maps: true
+  representative_frames: [0, 10, 30]

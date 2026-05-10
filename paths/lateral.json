@@ -1,0 +1,7 @@
+{
+  "source": "test",
+  "start": 0,
+  "stride": 1,
+  "max_frames": 60,
+  "description": "Placeholder path: replace with lateral-motion camera poses when available."
+}

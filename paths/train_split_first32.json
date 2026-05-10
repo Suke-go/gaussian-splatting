@@ -1,0 +1,6 @@
+{
+  "source": "train",
+  "start": 0,
+  "stride": 1,
+  "max_frames": 32
+}

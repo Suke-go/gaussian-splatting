@@ -1,0 +1,7 @@
+{
+  "source": "test",
+  "start": 0,
+  "stride": 1,
+  "max_frames": 60,
+  "description": "Placeholder path: use the first test cameras for yaw-style smoke runs until recorded poses are supplied."
+}
